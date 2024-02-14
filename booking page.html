@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Booking</title>
+    <h1 style="color: black; text-align:center; background:lavender;">Decoration Ideas</h1>
+    <style>
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            max-width: 300px;
+            text-align: center;
+            
+        }
+        .rounded-image {
+            border-top-right-radius: 10px; 
+            cursor: pointer;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            justify-content: center;
+            margin-left: 25px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body bgcolor="lightcoral"> 
+<img src="birthday_idea1.jpg" width="470" height="450" alt="Event Image 1" class="rounded-image" onclick="showPopup('Event Decoration 1')" />
+<img src="birthday_idea2.jpg" width="470" height="450" alt="Event Image 2" class="rounded-image" onclick="showPopup('Event Decoration 2')" />
+<img src="birthday_idea3.jpg" width="470" height="450" alt="Event Image 3" class="rounded-image" onclick="showPopup('Event Decoration 3')" />
+<img src="bday4.jpg" width="470" height="450" alt="Event Image 4" class="rounded-image" onclick="showPopup('Event Decoration 4')" />
+<img src="bday5.jpg" width="470" height="450" alt="Event Image 5" class="rounded-image" onclick="showPopup('Event Decoration 5')" />
+<img src="bday6.jpg" width="470" height="450" alt="Event Image 6" class="rounded-image" onclick="showPopup('Event Decoration 6')" />
+<img src="bday7.jpg" width="470" height="450" alt="Event Image 7" class="rounded-image" onclick="showPopup('Event Decoration 7')" />
+<img src="bday8.jpg" width="470" height="450" alt="Event Image 8" class="rounded-image" onclick="showPopup('Event Decoration 8')" />
+<img src="bday9.jpg" width="470" height="450" alt="Event Image 9" class="rounded-image" onclick="showPopup('Event Decoration 9')" />
+<img src="bd.jpg" width="470" height="450" alt="Event Image 10" class="rounded-image" onclick="showPopup('Event Decoration 10')" />
+<img src="bd3.jpg" width="470" height="450" alt="Event Image 11" class="rounded-image" onclick="showPopup('Event Decoration 11')" />
+<img src="bd11.jpg" width="470" height="450" alt="Event Image 12" class="rounded-image" onclick="showPopup('Event Decoration 12')" />
+<img src="bday.jpg" width="470" height="450" alt="Event Image 13" class="rounded-image" onclick="showPopup('Event Decoration 13')" />
+<img src="wedding_idea1.jpg" width="470" height="450" alt="Event Image 14" class="rounded-image" onclick="showPopup('Event Decoration 14')" />
+<img src="wedding_idea2.jpg" width="470" height="450" alt="Event Image 15" class="rounded-image" onclick="showPopup('Event Decoration 15')" />
+<img src="wedding_idea3.jpg" width="470" height="450" alt="Event Image 16" class="rounded-image" onclick="showPopup('Event Decoration 16')" />
+<img src="wedd4.jpg" width="470" height="450" alt="Event Image 17" class="rounded-image" onclick="showPopup('Event Decoration 17')" />
+<img src="wed5.jpg" width="470" height="450" alt="Event Image 18" class="rounded-image" onclick="showPopup('Event Decoration 18')" />
+<img src="wed6.jpg" width="470" height="450" alt="Event Image 19" class="rounded-image" onclick="showPopup('Event Decoration 19')" />
+<img src="wed7.jpg" width="470" height="450" alt="Event Image 20" class="rounded-image" onclick="showPopup('Event Decoration 20')" />
+<img src="wed8.jpg" width="470" height="450" alt="Event Image 21" class="rounded-image" onclick="showPopup('Event Decoration 21')" />
+<img src="wed12.jpg" width="470" height="450" alt="Event Image 22" class="rounded-image" onclick="showPopup('Event Decoration 22')" />
+<img src="wed10.jpg" width="470" height="450" alt="Event Image 23" class="rounded-image" onclick="showPopup('Event Decoration 23')" />
+<img src="wed11.jpg" width="470" height="450" alt="Event Image 24" class="rounded-image" onclick="showPopup('Event Decoration 24')" />
+<img src="wed112.jpg" width="470" height="450" alt="Event Image 25" class="rounded-image" onclick="showPopup('Event Decoration 25')" />
+<img src="sun.jpg" width="470" height="440" alt="Event Image 26" class="rounded-image" onclick="showPopup('Event Decoration 26')" />
+<img src="cop.jpg" width="470" height="450" alt="Event Image 27" class="rounded-image" onclick="showPopup('Event Decoration 27')" />
+<img src="cop1.jpg" width="470" height="450" alt="Event Image 28" class="rounded-image" onclick="showPopup('Event Decoration 28')" />
+<img src="cop3.jpg" width="470" height="450" alt="Event Image 29" class="rounded-image" onclick="showPopup('Event Decoration 29')" />
+<img src="cop4.jpg" width="470" height="440" alt="Event Image 30" class="rounded-image" onclick="showPopup('Event Decoration 30')" />
+<img src="cop5 (1).jpg" width="470" height="440" alt="Event Image 31" class="rounded-image" onclick="showPopup('Event Decoration 31')" />
+<img src="cop6.jpg" width="470" height="440" alt="Event Image 32" class="rounded-image" onclick="showPopup('Event Decoration 32')" />
+<img src="cop7.jpg" width="470" height="440" alt="Event Image 33" class="rounded-image" onclick="showPopup('Event Decoration 33')" />
+<img src="cop8.jpg" width="470" height="440" alt="Event Image 34" class="rounded-image" onclick="showPopup('Event Decoration 34')" />
+
+</body>
+<div id="popup" class="popup">
+    <h2 id="popupTitle"></h2>
+    <img id="selectedImage" src="" width="200" height="200" alt="Selected Image">
+    <button onclick="showBookingForm()">Book Decoration</button>
+</div>
+
+
+<script>
+function showPopup(title, selectedImageSrc) {
+    document.getElementById('popupTitle').textContent = title;
+    document.getElementById('selectedImage').src = selectedImageSrc;
+    document.getElementById('popup').style.display = 'block';
+}
+
+function showBookingForm() {
+    document.getElementById('popup').style.display = 'none';
+    window.location.href = 'bform.html';
+}
+
+function closePopup(popupId) {
+    document.getElementById(popupId).style.display = 'none';
+}
+</script>
+</body>
+</html>

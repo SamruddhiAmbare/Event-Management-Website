@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Company</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #fff;
+        color:black;
+        
+    }
+    header{
+        .mySlides {display: none;}
+    img {vertical-align: middle;}
+    }
+
+    .slideshow-container {
+        max-width: 3000px;
+        position: relative;
+        margin: auto;
+        height: 600px;
+        max-height: 100%;
+        overflow-y: hidden;
+        image-resolution: 100%;
+        white-space: nowrap;
+    }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        h1 {
+            text-align: center;
+            color: goldenrod;
+            font-family: cursive;
+        }
+
+        nav {
+            background-color: orangered;
+            color: lavender;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .aligned {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 20px;
+            text-align: center;
+            border: 2px solid #ccc;
+        }
+
+        footer {
+            background-color: olive;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: bottom;
+            bottom: 0px;
+            width: 100%;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .text-container {
+            text-align: center;
+        }
+
+        .text-container h1 {
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .text-container p {
+            font-size: 20px;
+            line-height: 1.6;
+            flex: 1;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .image-container img {
+            border-radius: 10px;
+            padding: 20px;
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Momentous Moments Event Planning & Management </h1>
+    <header>
+        <div class="slideshow-container" id="headerSlideshow">
+
+            <div class="mySlides fade">
+                <img src="main pg.jpg" style="width:100%">
+            </div>
+            
+            <div class="mySlides fade">
+                <img src="C:\Users\ambar\html files\new min prj html\main min\bday4.png" style="width:100%">
+            </div>
+            
+            <div class="mySlides fade">
+                <img src="C:\Users\ambar\html files\new min prj html\main min\cop5 (1).jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="C:\Users\ambar\Downloads\cop (1).jpg" style="width:100%">
+            </div>
+            <div class="mySlides fade">
+                <img src="C:\Users\ambar\Downloads\bday.jpg" style="width:100%">
+            </div>
+            
+            <div class="mySlides fade">
+                <img src="wed121.jpg" style="width:100%">
+            </div>
+            
+            <div class="mySlides fade">
+                <img src="wed112.jpg" style="width:100%">
+            </div>
+            
+            <div class="mySlides fade">
+                <img src="wed11.jpg" style="width:100%">
+            </div>
+            <div class="mySlides fade">
+                <img src="meh.jpg" style="width:100%">
+            </div>
+            
+            <div class="mySlides fade">
+                <img src="wed10.jpg" style="width:100%">
+            </div>
+        </div>
+    </header>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 2000); 
+        }
+
+    </script>
+    <nav>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <a onclick="window.location.href='booking page.html'">Gallery</a>
+        <a onclick="window.location.href='registration.html'">Register</a>
+        <a onclick="window.location.href='main_login.html'">Login</a>
+        <a onclick="window.location.href='profile.html'">Profile</a>
+        <a onclick="window.location.href='bookinglist.html'">Bookings</a>
+    </nav>
+    
+    
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to Momentous Moments Event Planning and Management company. We specialize in creating memorable and successful events for our clients. Our experienced team ensures that every detail is taken care of, allowing you to enjoy your event stress-free.</p>
+        <br>
+        <p>Momentous Moments Events Planning and Decor is one of the top event management companies, focusing on event management in Nagpur. Our goal is to ensure that the clients, as well as participants of the event, have an overall positive experience. To do this, we don’t look at building one-time associations with clients; instead, we aim at creating long-lasting collaborations that will span years to come. Our core purpose is to flourish the WOW customer experience and to bring prosperity to the entire ecosystem connected with her.</p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>We offer a wide range of event management services, including:</p>
+        <ul>
+            <li style="font-size:20px;">Wedding Planning</li>
+            <li style="font-size:20px;">Birthday Parties</li>
+            <li style="font-size:20px;">Corporate Events</li>
+            <li style="font-size:20px;">Conferences and Seminars</li>
+        </ul>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <style>p.outset{border-style: outset;}</style>
+        <div class="aligned">
+            <div class="image-container">
+                <img src="wed8.jpg" width="450" height="350" alt=" ">
+            </div>
+            <div class="text-container ">
+                <h1>Top Marriage Event Planners</h1><br>
+                <p style="font-size:20px;">
+                    Wedding decoration and design are something that attracts attention and gives life to any wedding affair. A wedding can be deemed as an act of epithalamium. Planning a wedding includes endless details and a timeline for the wedding outlet. The planning process begins with the question of determining the appropriate and decent place for the wedding...
+                </p>
+            </div>
+        </div>
+
+        <div class="aligned">
+            <div class="image-container">
+                <img src="cop8.jpg" width="450" height="350" alt=" ">
+            </div>
+            <div class="text-container  ">
+                <h1>Best Corporate Event Planner</h1><br>
+                <p style="font-size:20px;">
+                    Your corporate port depends on how successfully you launch an event right from the industry, trending conferences, seminars, exhibitions, award functions, and corporate branding events. Having a good impression is crucial. Momentous Moments Events Planning and Decor provides a new tenure of life to your marketing strategies. We help you revel in style with perfect tailor-made events...
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us to discuss your upcoming event. We'd love to hear from you!</p>
+        <address>
+            Email: <a href="mailto:Momentousmoments@gmail.com">Momentousmoments@gmail.com</a><br>
+            Phone: (123) 456-7890 <br><br>
+            Address: 
+        </address>
+    </section>
+
+    <footer>
+        &copy; 2023 Event Management Company. All rights reserved.
+    </footer>
+
+</body>
+</html>

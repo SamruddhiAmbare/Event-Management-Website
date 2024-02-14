@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <form id="eventBookingForm">
+        <h2>Event Booking</h2>
+        <label for="eventName">Event Name:</label>
+        <input type="text" name="eventName" id="eventName" required><br>
+
+        <label for="fullName">Full Name:</label>
+        <input type="text" name="fullName" id="fullName" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" name="phone" id="phone" required><br>
+
+        <label for="eventDate">Event Date:</label>
+        <input type="date" name="eventDate" id="eventDate" required><br>
+
+        <label for="eventTime">Event Time:</label>
+        <input type="time" name="eventTime" id="eventTime" required><br>
+
+        <label for="venue">Event Venue:</label>
+        <input type="text" name="venue" id="venue" required><br>
+        
+        <label for="venue">Event Decoration No.:</label>
+        <input type="text" name="decoration" id="decoration" required ><br>
+
+        <button type="button" onclick="submitBooking()">Submit Booking</button>
+        
+    </form>
+
+    <div id="bookingDetails" class="container">
+        <ul id="bookingList"></ul>
+    </div>
+    
+    <script>
+        function submitBooking() {
+            var eventName = document.getElementById('eventName').value;
+            var fullName = document.getElementById('fullName').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var eventDate = document.getElementById('eventDate').value;
+            var eventTime = document.getElementById('eventTime').value;
+            var venue = document.getElementById('venue').value;
+            var decoration = document.getElementById('decoration').value;
+        
+            if (!eventName || !fullName || !email || !phone || !eventDate || !eventTime || !venue || !decoration) {
+                alert('Please fill in all details.');
+                return;
+            }
+        
+            var newBooking = {
+                eventName: eventName,
+                fullName: fullName,
+                email: email,
+                phone: phone,
+                eventDate: eventDate,
+                eventTime: eventTime,
+                venue: venue,
+                decoration: decoration
+            };
+
+            var existingBookings = JSON.parse(localStorage.getItem('eventBookings')) || [];
+
+            existingBookings.push(newBooking);
+
+            localStorage.setItem('eventBookings', JSON.stringify(existingBookings));
+            window.alert(" Booking Successfull !");
+
+            redirectToBookingList();
+            
+            document.getElementById('eventBookingForm').reset();
+        }
+
+
+        function redirectToBookingList() {
+            window.location.href = 'bookinglist.html';
+        }
+    
+    </script>
+
+</body>
+</html>

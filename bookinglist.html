@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            position: relative;
+        }
+        button {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>All Bookings</h2>
+        <ul id="bookingList"></ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            displayBookingDetails();
+        });
+
+        function displayBookingDetails() {
+            var bookingList = document.getElementById('bookingList');
+            var existingBookings = JSON.parse(localStorage.getItem('eventBookings')) || [];
+
+            bookingList.innerHTML = '';
+
+            existingBookings.forEach((booking, index) => {
+                var listItem = document.createElement('li');
+                listItem.innerHTML = `<strong>${booking.fullName}</strong> - ${booking.eventName} | ${booking.eventDate} |${booking.eventTime}
+                    <button onclick="viewBooking(${index})">View</button>
+                    <button onclick="cancelBooking(${index})">Cancel</button>`;
+                bookingList.appendChild(listItem);
+            });
+        }
+        
+        function viewBooking(index) {
+            var existingBookings = JSON.parse(localStorage.getItem('eventBookings')) || [];
+            var booking = existingBookings[index];
+
+            alert(JSON.stringify(booking, null, 2));
+        }
+
+        function cancelBooking(index) {
+            var existingBookings = JSON.parse(localStorage.getItem('eventBookings')) || [];
+            
+            existingBookings.splice(index, 1);
+
+            localStorage.setItem('eventBookings', JSON.stringify(existingBookings));
+
+        
+            displayBookingDetails();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title><br>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('str5.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 8px;
+            color: black;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: medium;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: medium;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="loginUsername">Username:</label>
+            <input type="text" name="loginUsername" id="loginUsername" required><br>
+
+            <label for="loginPassword">Password:</label>
+            <input type="password" name="loginPassword" id="loginPassword" required><br>
+
+            <button type="button" onclick="loginUser()">Login</button>
+        </form>
+    </div>
+
+    <script>
+        
+    function loginUser() {
+        const storedUsers = localStorage.getItem('registeredUsers');
+        const registeredUsers = storedUsers ? JSON.parse(storedUsers) : [];
+
+        const loginUsername = document.getElementById('loginUsername').value;
+        const loginPassword = document.getElementById('loginPassword').value;
+
+        const userMatch = registeredUsers.find(user => user.Username === loginUsername && user.password === loginPassword);
+
+        if (userMatch) {
+            window.location.href = "entrypg.html";
+        } else {
+            alert("Invalid username or password. Please try again.");
+        }
+
+    }
+    </script>
+</body>
+</html>

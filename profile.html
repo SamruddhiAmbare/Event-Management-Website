@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(str5.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Profile</h2>
+        <div id="profileData"></div>
+    </div>
+
+    <script>
+        const storedUsers = localStorage.getItem('registeredUsers');
+        const registeredUsers = storedUsers ? JSON.parse(storedUsers) : [];
+
+        const profileDataDiv = document.getElementById('profileData');
+        registeredUsers.forEach(user => {
+            Object.entries(user).forEach(([key, value]) => {
+                const p = document.createElement('p');
+                p.textContent = `${key}: ${value}`;
+                profileDataDiv.appendChild(p);
+            });
+        });
+    </script>
+</body>
+</html>
