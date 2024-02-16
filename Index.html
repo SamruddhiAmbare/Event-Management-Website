@@ -5,10 +5,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image:url(str5.png);
+            background-image: url('str5.png');
             background-repeat: no-repeat;
             background-position: center;
-            background-size: cover ;
+            background-size: cover;
         }
 
         .container {
@@ -57,6 +57,58 @@
         </form>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+    const registeredUsers = [];
+
+    function registerUser() {
+        var fullname = document.getElementById('fullname').value;
+        var phone = document.getElementById('phone').value;
+        var address = document.getElementById('address').value;
+        var email = document.getElementById('email').value;
+        var Username = document.getElementById('Username').value;
+        var password = document.getElementById('password').value;
+
+        if (!fullname || !phone || !address || !email || !Username || !password) {
+            alert('Please fill in all fields.');
+        return;
+        }
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
+        return;
+        }
+
+        var phoneRegex = /^\d{10}$/;
+        if (!phoneRegex.test(phone)) {
+            alert('Please enter a valid 10-digit phone number.');
+        return;
+        }
+
+        function isUsernameTaken(username) {
+            return registeredUsers.some(user => user.username.toLowerCase() === username.toLowerCase());
+        
+        }
+
+        if (registeredUsers.some(user => user.email === email)) {
+            alert('Email already exists. Please use a different email.');
+        return;
+        }
+        registeredUsers.push({
+                fullname: fullname,
+                phone: phone,
+                address: address,
+                email: email,
+                Username: Username,
+                password: password
+            });
+        console.log("User registered:", { fullname, phone, address, email, Username, password });
+        alert('Registration Successful\nYou can now login with your credentials.');
+        
+
+        localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+            window.location.href = "main_login.html";
+    }
+    </script>
 </body>
 </html>
